@@ -1,2 +1,6 @@
 /dist
 /node_modules
+/data/*
+.env
+package-lock.json
+/uploads/*
