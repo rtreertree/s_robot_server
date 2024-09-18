@@ -13,7 +13,7 @@ export default class Discord {
 
         this.client.once("ready", async () => {
             this.channel = this.client.channels.cache.get(this.channelID) as TextChannel;
-            this.channel.send('Discord bot is ready');
+            this.channel.send("Discord bot is ready");
             console.log("Discord bot is ready");
         });
 
@@ -28,6 +28,12 @@ export default class Discord {
     }
 
     public async sendImage(image: Buffer) :Promise<string> {
+
+        if (!this.channel) {
+            console.error("Channel not found");
+            return "";
+        }
+
         const attachment = new AttachmentBuilder(image, {name: 'uploaded.png'});
         const res = await this.channel.send({files: [attachment]});
 
