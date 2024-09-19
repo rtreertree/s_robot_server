@@ -45,8 +45,8 @@ app.post('/image',upload.single("image"), async(req: any, res) => {
 });
 
 // Check connectivity and ping robot
-app.post('/', async(req, res) => {
-    res.send("ok");
+app.get('/', async(req, res) => {
+    res.send("ok server is running");
 });
 
 
